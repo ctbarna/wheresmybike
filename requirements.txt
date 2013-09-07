@@ -1,0 +1,8 @@
+Django
+psycopg2
+south
+requests
+pytz
+django-timezone-field
+djangorestframework
+django-celery
