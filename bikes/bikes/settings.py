@@ -84,7 +84,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'efo0d=b%8g5vk+xs%!un!)7$+^78vft#=nreox$35*e!i!y8u*'
+SECRET_KEY = 'REGENERATE SECRET KEY'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -164,5 +164,7 @@ LOGGING = {
 }
 
 API_KEYS = {
-    "GOOGLE_MAPS": "AIzaSyCrsD7eTOXRULJFTEgZdEF4ecRMPZCl8Ns",
+    "GOOGLE_MAPS": "INSERT GOOGLE MAPS KEY",
 }
+
+from .settings_local import *
