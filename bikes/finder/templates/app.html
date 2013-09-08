@@ -10,42 +10,5 @@
 {% endblock %}
 
 {% block footer %}
-<script type="text/javascript">
-function initialize() {
-    var mapOptions = {
-        center: new google.maps.LatLng(38.8951, -77.0367),
-        zoom: 13,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
-    var openWindow = null
-
-    $.getJSON("/api/v1/cities/1/", function(data) {
-        for (var index in data.stations) {
-        var marker = new google.maps.Marker({
-            map: map,
-            position: new google.maps.LatLng(data.stations[index].coordinates[0],
-                data.stations[index].coordinates[1])
-            });
-
-        (function (marker, index) {
-            google.maps.event.addListener(marker, 'click', function () {
-                if (openWindow) {
-                    openWindow.close();
-                }
-                openWindow = new google.maps.InfoWindow({
-                    content: "<ul>" +
-                        "<li>Bikes: " + data.stations[index].bikes + "</li>" +
-                        "<li>Empty Docks: " + data.stations[index].empty_docks + "</li>" +
-                        "</ul>"
-                    });
-                openWindow.open(map, marker);
-            });
-        })(marker, index);
-        }
-    });
-};
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/app.js"></script>
 {% endblock footer %}
